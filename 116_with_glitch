@@ -1,8 +1,9 @@
-float positionA[3];
-float positionB[3];
-float positionC[3];
-int counter;
-void init(){
+static float positionA[3];
+static float positionB[3];
+static float positionC[3];
+static unsigned int counter;
+
+void init(void){
     positionA[0] = 800;
     positionA[1] = 800;
     positionA[2] = 0;
@@ -14,27 +15,27 @@ void init(){
     positionC[2] = 0;
     counter = 0;
     
-
 }
 
-void loop(){
-    if(counter>2){
-    api.setPositionTarget(positionA);
+void loop(void){
+    if(counter > 2){
+        api.setPositionTarget(positionA);
     }
-    if(counter == 35){
-    game.dropSPS();
+    else if(counter == 35){
+        game.dropSPS();
     }
-    if(counter>35){
-    api.setPositionTarget(positionB);
+    else if(counter > 35){
+        api.setPositionTarget(positionB);
     }
-    if(counter == 80){
-    game.dropSPS();
+    else if(counter == 80){
+        game.dropSPS();
     }
-    if(counter>80){
-    api.setPositionTarget(positionC);
+    else if(counter > 80){
+        api.setPositionTarget(positionC);
     }
-    if(counter == 160){
-    game.dropSPS();    
+    else if(counter == 160){
+        game.dropSPS();    
     }
+
     counter++;
 }
